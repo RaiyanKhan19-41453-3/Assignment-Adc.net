@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeHomepage";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+
+<a href="/Home/Logout" class="btn btn-success">Log out</a>
+<hr />
+<h2>Task List</h2>
+<table class="table table-condensed">
+    <tr>
+        <th>RestaurantName</th>
+        <th>ExpirationDate</th>
+        <th>Weight</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DonationRequest.Restaurant.RestaurantName</td>
+            <td>@item.DonationRequest.ExpirationDate</td>
+            <td>@item.DonationRequest.Weight</td>
+            <td>@item.Status</td>
+            <td><a href="/Home/Done/@item.DonationCollectionId" class="btn btn-success">Click to Done</td>
+        </tr>
+    }
+</table>
+

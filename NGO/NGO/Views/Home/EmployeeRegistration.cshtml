@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeRegistration";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+
+<h2>EmployeeRegistration</h2>
+
+@{
+    bool CheckGender(string gn)
+    {
+        if (Model != null && Model.Gender != null && Model.Gender.Equals(gn))
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+
+@*@Html.ValidationSummary()*@
+<form method="post">
+    <input type="text" name="EmpName" class="form-control" value="@(Model != null ? Model.EmpName :"" )" placeholder="Name" />
+    <span class="text-danger">@Html.ValidationMessage("EmpName")</span>
+    <input type="text" name="EmployeeAge" value="@(Model != null ? Model.EmployeeAge : "" )" class="form-control" placeholder="Age" />
+    @Html.ValidationMessage("EmployeeAge")
+    <br>Gender: <input type="radio" checked="@CheckGender("Male")" name="Gender" value="Male" /> Male
+    <input type="radio" name="Gender" checked="@CheckGender("Female")" value="Female" /> Female </br>
+    @Html.ValidationMessage("Gender")
+    <input type="password" name="Password" value="@(Model != null ? Model.Password : "" )" class="form-control" placeholder="Password" />
+    @Html.ValidationMessage("Password")
+
+    <input type="submit" class="btn btn-success" />
+</form>

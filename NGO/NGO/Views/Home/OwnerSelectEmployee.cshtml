@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "OwnerSelectEmployee";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+
+<h2>OwnerSelectEmployee</h2>
+@if ((int)TempData["Count"] == 0)
+{
+    <h3>None you can Assign</h3>
+}
+else
+{
+<form method="post">
+
+    @foreach (var item in Model)
+    {
+        <input type="checkbox" name="Workers[]" value="@item.EmpId" />@item.EmpName
+        <br />
+    }
+    <input type="submit" class="btn btn-success"/>
+</form>}

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RestaurantHomePage";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+<a href="/Home/Logout" class="btn btn-success">Log out</a>
+<h2>Send Request with Weight and Expiration Date</h2>
+
+<form method="post">
+    <input type="text" name="Weight" class="form-control" value="@(Model != null ? Model.Weight :"" )" placeholder="Weight" />
+    <span class="text-danger">@Html.ValidationMessage("Weight")</span>
+    <input type="date" name="ExpirationDate" value="@(Model != null ? Model.ExpirationDate : "" )" class="form-control" placeholder="ExpirationDate" />
+    @Html.ValidationMessage("ExpirationDate")
+    <span class="text-danger">@ViewBag.Msg</span>
+    <input type="submit" class="btn btn-success" value="Send Request" />
+</form>

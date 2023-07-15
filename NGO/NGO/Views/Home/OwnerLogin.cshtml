@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "OwnerLogin";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+
+<h2>OwnerLogin</h2>
+
+<form method="post">
+    <input type="text" name="OwnerId" class="form-control" value="@(Model != null ? Model.OwnerId :"" )" placeholder="OwnerId" />
+    <span class="text-danger">@Html.ValidationMessage("OwnerId")</span>
+    <input type="text" name="OwnerName" value="@(Model != null ? Model.OwnerName : "" )" class="form-control" placeholder="OwnerName" />
+    @Html.ValidationMessage("OwnerName")
+    <span class="text-danger">@ViewBag.Msg</span>
+    <input type="submit" class="btn btn-success" />
+</form>

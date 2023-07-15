@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RestaurantLogin";
+    Layout = "~/Views/Shared/_outer_layout.cshtml";
+}
+
+<h2>RestaurantLogin</h2>
+
+<form method="post">
+    <input type="text" name="RestaurantName" class="form-control" value="@(Model != null ? Model.RestaurantName :"" )" placeholder="RestaurantName" />
+    <span class="text-danger">@Html.ValidationMessage("RestaurantName")</span>
+    <input type="password" name="Password" value="@(Model != null ? Model.Password : "" )" class="form-control" placeholder="Password" />
+    @Html.ValidationMessage("Password")
+    <span class="text-danger">@ViewBag.Msg</span>
+    <input type="submit" class="btn btn-success" />
+</form>
